@@ -1,0 +1,62 @@
+{
+  "name": "DataServiceDemo",
+  "description": "빈 프로세스",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.DataService.Activities": "[21.1.2]",
+    "UiPath.Excel.Activities": "[2.9.5]",
+    "UiPath.Mail.Activities": "[1.9.5]",
+    "UiPath.System.Activities": "[20.10.4]",
+    "UiPath.UIAutomation.Activities": "[20.10.9]"
+  },
+  "webServices": [],
+  "entitiesStores": [
+    {
+      "serviceDocument": ".entities/EntitiesStore.json",
+      "tenantName": "ai",
+      "namespace": "DataServiceDemo",
+      "uniqueReference": "C6BG/OS0lUxIBQ8mQra1w8+/0u6rzBxWbgWpBjF4PX0="
+    }
+  ],
+  "schemaVersion": "4.0",
+  "studioVersion": "20.10.6.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "18f03238-4965-4f94-9cb6-9ac2b53e90ae",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {}
+}
