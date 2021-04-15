@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="674,811" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DataServiceDemo;assembly=DataService.DataServiceDemo" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="672,1920" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DataServiceDemo;assembly=DataService.DataServiceDemo" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="29">
+    <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -30,10 +30,11 @@
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>DataServiceDemo</x:String>
+      <x:String>System.Runtime.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -57,18 +58,26 @@
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>DataService.DataServiceDemo</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="454,676" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="461,1715" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IList(d:Role)" Name="csmAndPse" />
+      <Variable x:TypeArguments="d:Phonebook" Default="[new Phonebook]" Name="newRecord" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uda:QueryEntityRecords x:TypeArguments="d:Role" TotalRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="412,224" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_1" OutputRecords="[csmAndPse]" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="100">
+    <uda:QueryEntityRecords x:TypeArguments="d:Role" TotalRecords="{x:Null}" ContinueOnError="False" DisplayName="Query Entity Records" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="419,224" sap2010:WorkflowViewState.IdRef="QueryEntityRecords`1_1" OutputRecords="[csmAndPse]" Skip="0" SortAscending="True" SortByField="Id" TimeoutInMs="30000" Top="100">
       <uda:QueryEntityRecords.FilterArguments>
         <uda:FilterArgument FilterActivityType="d:Role">
           <uda:FilterArgument.Filter>
@@ -76,7 +85,6 @@
               <uda:GroupFilter.Filters>
                 <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
                   <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="Code" FieldType="System.Nullable`1[[DataServiceDemo.RoleCode, DataService.DataServiceDemo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" Operator="=" ValueIndex="0" />
-                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="Code" FieldType="System.Nullable`1[[DataServiceDemo.RoleCode, DataService.DataServiceDemo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" Operator="=" ValueIndex="1" />
                 </scg:List>
               </uda:GroupFilter.Filters>
               <uda:GroupFilter.Groups>
@@ -88,24 +96,75 @@
       </uda:QueryEntityRecords.FilterArguments>
       <uda:QueryEntityRecords.FilterValues>
         <scg:List x:TypeArguments="InArgument" Capacity="4">
-          <InArgument x:TypeArguments="d:RoleCode">[RoleCode.CS]</InArgument>
-          <InArgument x:TypeArguments="d:RoleCode">[RoleCode.PSE]</InArgument>
+          <InArgument x:TypeArguments="d:RoleCode">[RoleCode.TAM]</InArgument>
         </scg:List>
       </uda:QueryEntityRecords.FilterValues>
     </uda:QueryEntityRecords>
-    <ui:ForEach x:TypeArguments="d:Role" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,320" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[csmAndPse]">
+    <ui:ForEach x:TypeArguments="d:Role" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="419,1359" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[csmAndPse]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="d:Role">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="d:Role" Name="role" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="383,1224" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="d:Phonebook" Name="newPhonebookEntry" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[string.Format(&quot;{0} - {1}&quot;, role.Code.ToString, role.Name)]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="341,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[string.Format(&quot;{0} - {1}&quot;, role.Code.ToString, role.Name)]" />
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="341,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[newRecord.Email]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">rakseung.choi@uipath.com</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[newRecord.Name]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">최락승</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="d:Role">[newRecord.Role]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="d:Role">[role]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[newRecord.PhoneNumber]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">01029693128</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="s:Nullable(s:DateTimeOffset)">[newRecord.OnBoardingDate]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="s:Nullable(s:DateTimeOffset)">[DateTimeOffset.Now]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <uda:CreateEntityRecord x:TypeArguments="d:Phonebook" ContinueOnError="False" DisplayName="Create Entity Record" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="341,223" sap2010:WorkflowViewState.IdRef="CreateEntityRecord`1_1" InputEntity="[newRecord]" OutputEntity="[newPhonebookEntry]" TimeoutInMs="30000" />
+            <uda:UploadFileToRecordField x:TypeArguments="d:Phonebook" ContinueOnError="False" DisplayName="Upload File to Record Field" ExpansionDepth="2" Field="Photo" FilePath="C:\Users\charles\Pictures\photo_choi.png" sap:VirtualizedContainerService.HintSize="341,341" sap2010:WorkflowViewState.IdRef="UploadFileToRecordField`1_1" OutputEntity="[newPhonebookEntry]" RecordId="[newPhonebookEntry.Id]" TimeoutInMs="30000" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="341,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[newPhonebookEntry.Id.ToString + &quot;/&quot; + newPhonebookEntry.Name + &quot;/&quot; + newPhonebookEntry.CreateTime.ToString]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
